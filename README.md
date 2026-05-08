@@ -43,7 +43,60 @@ semantic search, and citation tracking to create a research assistant that actua
 ---
 
 # 🎬 Live Demo
+<div align="center">
 
+<h1>🎬 Live Demo</h1>
+
+<p>
+📺 <b>Demo Video:</b> Add your Loom / YouTube link here
+</p>
+
+<img src="assets/screenshots/demo.gif" width="100%" />
+
+<h3>✨ Upload papers → Ask questions → Get cited answers instantly</h3>
+
+</div>
+
+---
+
+# 🌟 Why CiteMind AI?
+
+| 🛡️ Anti-Hallucination | ⚡ Dual LLM Architecture | 📚 Verifiable Citations |
+|---|---|---|
+| Refuses to answer when retrieval confidence is low. No fake citations. | Switch between Groq (speed) and Gemini (deep reasoning). | Every claim links back to document + page + chunk. |
+
+---
+
+# 🎯 The Problem
+
+Every year, researchers face an overwhelming flood of academic information.
+
+- 📄 **Millions of new papers** published annually  
+- ⏳ Researchers spend countless hours on literature review  
+- 🤖 Traditional LLMs hallucinate facts and invent citations  
+- 🔍 Search engines return documents, not trustworthy answers  
+
+## The Result
+
+AI becomes fast — but unreliable for serious research.
+
+---
+
+# 💡 The Solution
+
+CiteMind AI solves this using an advanced **Retrieval-Augmented Generation (RAG)** pipeline.
+
+```text
+📄 Documents
+      ↓
+🧠 Semantic Retrieval
+      ↓
+📌 Citation Tracking
+      ↓
+🤖 Grounded LLM Generation
+      ↓
+✅ Verifiable Research Answers
+```
 ### Core Innovations
 
 * 🔍 Semantic document search
