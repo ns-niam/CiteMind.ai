@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/License-MIT-8b5cf6?style=flat-square" />
+  <img src="https://img.shields.io/badge/License-All_Rights_Reserved-red?style=flat-square" />
   <img src="https://img.shields.io/github/stars/ns-niam/CiteMind.ai?style=flat-square&color=facc15" />
   <img src="https://img.shields.io/badge/Status-Production_Ready-22c55e?style=flat-square" />
   <img src="https://img.shields.io/badge/Built_By-Niam-ec4899?style=flat-square" />
@@ -42,7 +42,6 @@ semantic search, and citation tracking to create a research assistant that actua
 
 ---
 
-# 🎬 Live Demo
 <div align="center">
 
 <h1>🎬 Live Demo</h1>
