@@ -453,11 +453,15 @@ git push origin feature/amazing-feature
 
 # 📜 License
 
-MIT License © 2026 Niam
+# 📜 License
 
-Free for educational and research purposes.
+Copyright © 2026 Niam. All rights reserved.
 
----
+This repository is shared publicly for educational, research, and portfolio purposes only.
+
+Commercial use, redistribution, sublicensing, or deployment of modified versions is prohibited without explicit written permission from the author.
+
+If you are interested in collaboration, research, or licensing opportunities, please contact the author.
 
 # 🙏 Acknowledgments
 
