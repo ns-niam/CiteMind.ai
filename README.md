@@ -549,7 +549,7 @@ Special thanks to:
 
 <div align="center">
 
-## 🧠 CiteMind AI
+## 🧠 CiteMind.AI
 
 ### Made with ❤️ by Niam
 
