@@ -1,10 +1,10 @@
 <div align="center">
 
-# 🧠 CiteMind AI
+<h1>🧠 CiteMind AI</h1>
 
-### *Trustworthy AI Research Assistant with Verifiable Citations*
+<h3><i>Trustworthy AI Research Assistant with Verifiable Citations</i></h3>
 
-> **Stop trusting hallucinating AI. Start verifying every answer.**
+<p><b>Stop trusting hallucinating AI. Start verifying every answer.</b></p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white" />
@@ -24,71 +24,25 @@
 
 ---
 
-### 🚀 AI-Powered Research. Grounded in Real Sources.
+<h3>🚀 AI-Powered Research. Grounded in Real Sources.</h3>
 
-*CiteMind AI combines advanced Retrieval-Augmented Generation (RAG), dual-LLM reasoning, semantic search, and citation tracking to create a research assistant that actually verifies its answers.*
+<p>
+CiteMind AI combines advanced Retrieval-Augmented Generation (RAG), dual-LLM reasoning,
+semantic search, and citation tracking to create a research assistant that actually verifies its answers.
+</p>
 
-### 🔗 [Live Demo](#-live-demo) • 📖 [Documentation](#-documentation) • ⚡ [Quick Start](#-quick-start) • 📊 [Evaluation](#-evaluation-results)
+<p>
+🔗 <a href="#-live-demo">Live Demo</a> •
+📖 <a href="#-documentation">Documentation</a> •
+⚡ <a href="#-quick-start">Quick Start</a> •
+📊 <a href="#-evaluation-results">Evaluation</a>
+</p>
 
 </div>
 
 ---
 
 # 🎬 Live Demo
-
-<div align="center">
-
-> 📺 **Demo Video:** *Add your Loom / YouTube link here*
-
-<img src="assets/screenshots/demo.gif" width="100%" />
-
-### ✨ Upload papers → Ask questions → Get cited answers instantly
-
-</div>
-
----
-
-# 🌟 Why CiteMind AI?
-
-<div align="center">
-
-| 🛡️ Anti-Hallucination | ⚡ Dual LLM Architecture | 📚 Verifiable Citations |
-|---|---|---|
-| Refuses to answer when retrieval confidence is low. No fake citations. | Switch between Groq (speed) and Gemini (deep reasoning). | Every claim links back to document + page + chunk. |
-
-</div>
-
----
-
-# 🎯 The Problem
-
-Every year, researchers face an overwhelming flood of academic information.
-
-- 📄 **Millions of new papers** published annually  
-- ⏳ Researchers spend countless hours on literature review  
-- 🤖 Traditional LLMs hallucinate facts and invent citations  
-- 🔍 Search engines return documents, not trustworthy answers  
-
-### The result?
-
-AI becomes fast — but unreliable for serious research.
-
----
-
-# 💡 The Solution
-
-CiteMind AI solves this using an advanced **Retrieval-Augmented Generation (RAG)** pipeline.
-
-text
-📄 Documents
-      ↓
-🧠 Semantic Retrieval
-      ↓
-📌 Citation Tracking
-      ↓
-🤖 Grounded LLM Generation
-      ↓
-✅ Verifiable Research Answers
 
 ### Core Innovations
 
@@ -140,9 +94,10 @@ flowchart LR
     I --> K
     J --> L
     K --> L
+```
 
 ---
-```
+
 # ✨ Features
 
 ## 📄 Multi-Format Document Support
