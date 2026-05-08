@@ -79,7 +79,7 @@ AI becomes fast — but unreliable for serious research.
 
 CiteMind AI solves this using an advanced **Retrieval-Augmented Generation (RAG)** pipeline.
 
-```text
+text
 📄 Documents
       ↓
 🧠 Semantic Retrieval
@@ -140,10 +140,9 @@ flowchart LR
     I --> K
     J --> L
     K --> L
-```
 
 ---
-
+```
 # ✨ Features
 
 ## 📄 Multi-Format Document Support
