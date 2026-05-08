@@ -308,25 +308,80 @@ jupyter notebook notebooks/CiteMind_Demo.ipynb
 ```bash
 CiteMind.ai/
 │
-├── src/
-│   ├── data/
-│   ├── embeddings/
-│   ├── retrieval/
-│   ├── generation/
-│   ├── evaluation/
-│   └── utils/
+├── 📂 src/                          # Core source code
+│   ├── 📂 data/
+│   │   ├── loader.py                # PDF/DOCX/TXT loaders
+│   │   ├── chunker.py               # Recursive text splitting
+│   │   └── ingest.py                # End-to-end ingestion
+│   │
+│   ├── 📂 embeddings/
+│   │   └── embedder.py              # Sentence-Transformers wrapper
+│   │
+│   ├── 📂 retrieval/
+│   │   ├── vectorstore.py           # ChromaDB integration
+│   │   └── retriever.py             # Top-K + MMR retrieval
+│   │
+│   ├── 📂 generation/
+│   │   ├── llm.py                   # Groq + Gemini wrapper
+│   │   ├── prompts.py               # Citation-aware templates
+│   │   ├── citations.py             # Source tracker
+│   │   └── rag_engine.py            # End-to-end RAG pipeline
+│   │
+│   ├── 📂 evaluation/
+│   │   ├── evaluator.py             # RAGAS-style metrics
+│   │   └── visualize.py             # Chart generator
+│   │
+│   └── 📂 utils/
+│       ├── config.py                # Environment + settings
+│       └── display.py               # CLI pretty printer
 │
-├── notebooks/
-├── docs/
-├── tests/
-├── data/
-├── assets/
+├── 📂 notebooks/
+│   └── CiteMind_Demo.ipynb          # ⭐ Full reproducible demo
 │
-├── app.py
-├── chat.py
-├── requirements.txt
-├── .env.example
-└── README.md
+├── 📂 docs/                         # Documentation & deliverables
+│   ├── 01_problem_statement.md
+│   ├── 02_literature_review.md
+│   ├── 03_system_architecture.md
+│   ├── 04_system_logic.md
+│   ├── 05_ml_design_decisions.md
+│   ├── 06_defense_notes.md
+│   ├── FINAL_REPORT.md              # Markdown source
+│   ├── CiteMind_AI_Final_Report.pdf # 📄 8-10 page report
+│   └── CiteMind_AI_Presentation.pptx # 🎤 Defense slides
+│
+├── 📂 assets/
+│   ├── 📂 charts/                   # Evaluation visualizations
+│   │   ├── 01_metrics_comparison.png
+│   │   ├── 02_response_times.png
+│   │   ├── 03_per_query_faithfulness.png
+│   │   ├── 04_confidence_distribution.png
+│   │   ├── 05_radar_chart.png
+│   │   └── architecture_diagram.png
+│   └── 📂 screenshots/              # UI screenshots
+│
+├── 📂 tests/
+│   ├── eval_queries.py              # 10 hand-crafted test queries
+│   ├── run_evaluation.py            # Full eval runner
+│   ├── test_llms.py
+│   ├── test_data_pipeline.py
+│   ├── test_retrieval.py
+│   └── test_rag.py
+│
+├── 📂 data/
+│   ├── 📂 raw/                      # Uploaded documents (gitignored)
+│   └── 📂 processed/
+│       └── eval_results.json        # Evaluation outputs
+│
+├── 📂 scripts/
+│   ├── generate_arch_diagram.py
+│   └── generate_presentation.py
+│
+├── 🌐 app.py                        # Streamlit web app
+├── 💻 chat.py                       # CLI chat interface
+├── 📋 requirements.txt
+├── 🔒 .env.example
+├── 🚫 .gitignore
+└── 📖 README.md                     # You are here
 ```
 
 ---
