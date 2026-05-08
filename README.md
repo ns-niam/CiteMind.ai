@@ -1,4 +1,3 @@
-````markdown
 <div align="center">
 
 # 🧠 CiteMind AI
@@ -90,7 +89,6 @@ CiteMind AI solves this using an advanced **Retrieval-Augmented Generation (RAG)
 🤖 Grounded LLM Generation
       ↓
 ✅ Verifiable Research Answers
-````
 
 ### Core Innovations
 
