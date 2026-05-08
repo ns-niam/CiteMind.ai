@@ -451,7 +451,7 @@ git push origin feature/amazing-feature
 
 ---
 
-# 📜 License
+
 
 # 📜 License
 
@@ -479,11 +479,11 @@ Special thanks to:
 
 <div align="center">
 
-# Niam
+# Md Sha Niamatullah (Niam)
 
 ### *Building trustworthy AI systems for the future of research.*
 
-📧 Open to AI/ML internships, collaborations, and research opportunities.
+📧 Open to AI/ML internships, collaborations and research opportunities.
 
 ### ⭐ If you found this project useful, give it a star!
 
