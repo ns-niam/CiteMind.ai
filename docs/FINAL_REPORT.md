@@ -1,8 +1,14 @@
 # CiteMind AI: An Intelligent Research Assistant with Verifiable Citations
 
 **Author:** Md Sha Niamatullah (Niam)
+
+
 **Course:** Machine Learning 
+
+
 **Submission:** Final Project Report
+
+
 **Date:** May 2026
 
 ---
@@ -73,6 +79,21 @@ The closest commercial analog is NotebookLM. CiteMind achieves comparable functi
 - 100% open-source dependencies
 - Local-first vector storage (no data leaves the user's machine for embedding/retrieval)
 - Free LLM tiers only — no API key purchase required
+
+### 3.5 ML-Based Confidence Estimation
+
+A major enhancement added to CiteMind AI is the integration of a machine-learning-based confidence prediction system. Instead of relying only on heuristic retrieval thresholds, the system now extracts structured retrieval and response features and predicts confidence levels using a trained RandomForest classifier.
+
+The model considers:
+- top retrieval similarity
+- average similarity
+- citation count
+- answer length
+- response time
+- score distribution
+
+This creates a hybrid ML + RAG architecture capable of more robust confidence estimation and hallucination prevention.
+
 
 ---
 
@@ -163,6 +184,25 @@ After retrieval, the system computes a confidence label based on the top-1 simil
 | 0.30 – 0.50 | (Medium) Medium | Answer with caveat |
 | < 0.30 | (Low) Low | Refuse with note to upload more documents |
 
+### 5.6.1 ML-Based Confidence Prediction
+
+Initially, confidence estimation was based solely on retrieval similarity thresholds. The system was later upgraded with a supervised machine learning confidence classifier.
+
+A custom dataset was automatically generated from RAG evaluation outputs. Features extracted from each query-response interaction include:
+- top retrieval score
+- mean retrieval score
+- citation count
+- answer length
+- response latency
+- heuristic confidence estimate
+
+A RandomForestClassifier was trained on these features to predict:
+- High confidence
+- Medium confidence
+- Low confidence
+
+The trained model is serialized using Joblib and loaded during runtime inference.
+
 ### 5.7 Evaluation Metrics
 
 We adopt four reference-based metrics inspired by RAGAS:
@@ -176,16 +216,54 @@ We adopt four reference-based metrics inspired by RAGAS:
 
 All metrics are computed using the same Sentence-Transformers embedder (consistent with embedding space).
 
+### 5.7.1 Experiment Tracking with MLflow
+
+To improve reproducibility and model experimentation, MLflow was integrated into the training pipeline.
+
+MLflow tracks:
+- training parameters
+- evaluation metrics
+- trained model artifacts
+- experiment runs
+
+This allows future comparison between multiple confidence models and feature-engineering strategies.
+
 ### 5.8 System Architecture
 
-┌─────────────────────────────────────────────────────────────────┐ │ CiteMind AI Pipeline │ ├─────────────────────────────────────────────────────────────────┤ │ │ │  Documents → Loader → Chunker → Embedder → ChromaDB │ │ │ │ Q: Query → Embedder → Retriever → MMR → Top-K Chunks │ │ ↓ │ │ Prompt Constructor │ │ ↓ │ │ ┌─── Groq (fast) │ │ Router ───┤ │ │ └─── Gemini (deep) │ │ ↓ │ │ Answer + Inline [Source N] Citations │ │ ↓ │ │  RAGAS Eval │ └─────────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────────┐
+│                           CiteMind AI Pipeline                            │
+├────────────────────────────────────────────────────────────────────────────┤
+│                                                                            │
+│  Documents                                                                 │
+│      ↓                                                                     │
+│  Loader → Chunker → Embedder → ChromaDB Vector Store                      │
+│                                                                            │
+│  User Query                                                                │
+│      ↓                                                                     │
+│  Query Embedder → Retriever → MMR Re-ranking → Top-K Chunks               │
+│      ↓                                                                     │
+│  Citation Formatter + Prompt Constructor                                  │
+│      ↓                                                                     │
+│                  ┌─── Groq (Fast Inference)                                │
+│      LLM Router ─┤                                                         │
+│                  └─── Gemini (Deep Reasoning)                              │
+│      ↓                                                                     │
+│  Generated Answer + Inline [Source N] Citations                           │
+│      ↓                                                                     │
+│  ML Confidence Predictor                                                   │
+│      ↓                                                                     │
+│  Final Confidence Label (High / Medium / Low)                             │
+│      ↓                                                                     │
+│  RAGAS-style Evaluation + Metrics + Visualizations                        │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
 
 
 A detailed Mermaid diagram with full data flow is available in `docs/03_system_architecture.md` of the repository.
 
 ### 5.9 Production Deployment Strategy
 
-**Phase 1 (Current MVP):** Streamlit Cloud + local ChromaDB + free LLM tiers. Single-user.
+**Phase 1 :** Streamlit Cloud + local ChromaDB + free LLM tiers. Single-user. Docker containerization support was added to simplify reproducible deployment across different environments.
 
 **Phase 2 (Scale):** Docker on AWS ECS, hosted Pinecone, Redis cache, paid LLM tier. Tens of concurrent users.
 
@@ -229,15 +307,23 @@ We evaluated CiteMind on 10 hand-crafted queries against the *"Attention Is All 
 ### 7.1 Aggregate Metrics
 
 | Metric             | Groq (Llama 3.3 70B) | Gemini 2.5 Flash | Target |
-|--------            |:--------------------:|:----------------:|:------:|
-| Answer Relevancy   | *( 0.762)*           | *(0.369)*        | > 0.80 |
-| Answer Correctness | *(0.594)*            | *(0.347)*        | > 0.75 |
-| Context Precision  | *( 0.09)*            | *(0.09)*         | > 0.75 |
-| **Faithfulness**   | *(0.163)*            | *(0.294)*        | **> 0.85** |
-|n_samples           |10                    |                10|
-| Avg Response Time  | ~ 0.66s              | ~3.03s           | < 5s   |
+|--------------------|:--------------------:|:----------------:|:------:|
+| Answer Relevancy   | 0.748                | 0.336            | > 0.80 |
+| Answer Correctness | 0.582                | 0.315            | > 0.75 |
+| Context Precision  | 0.09                 | 0.09             | > 0.75 |
+| Faithfulness       | 0.233                | 0.363            | > 0.85 |
+| n_samples          | 10                   | 10               | — |
+| Avg Response Time  | ~0.89s               | ~2.99s           | < 5s |
 
+Although the current evaluation scores do not yet reach production-grade research benchmarks, the system successfully demonstrates the complete functionality of a citation-aware Retrieval-Augmented Generation (RAG) pipeline with verifiable source tracking, confidence estimation, and dual-LLM support.
 
+The evaluation primarily validates:
+- semantic retrieval functionality,
+- citation grounding,
+- confidence-aware response generation,
+- and end-to-end pipeline integration.
+
+Future improvements such as hybrid retrieval, larger evaluation datasets, cross-encoder reranking, and stronger embedding models are expected to significantly improve the quantitative metrics.
 
 ### 7.2 Key Findings
 
@@ -248,6 +334,18 @@ We evaluated CiteMind on 10 hand-crafted queries against the *"Attention Is All 
 **3. Reasoning quality favors Gemini.** Gemini produces more nuanced phrasings and better captures multi-claim answers (e.g., listing multiple training datasets), at the cost of latency.
 
 **4. Confidence gating prevents hallucination.** Out of 20 query-LLM combinations, the system correctly refused to answer when retrieval scores fell below threshold (e.g., out-of-scope questions returned (Low) Low confidence).
+
+### 7.2.1 ML Confidence Prediction Results
+
+The ML-based confidence classifier was successfully integrated into the RAG pipeline.
+
+Training pipeline included:
+- dataset generation from evaluation outputs
+- feature engineering
+- RandomForest training
+- runtime inference integration
+
+The model demonstrated the ability to distinguish between low-, medium-, and high-confidence responses using retrieval and response-based features.
 
 ### 7.3 Visualizations
 
@@ -275,6 +373,7 @@ The following figures (in `assets/charts/`) summarize the evaluation:
 2. **Single-document evaluation.** Our test set uses one paper. Production deployment requires evaluation across diverse domains (medicine, law, history).
 3. **PDF parsing fragility.** Complex layouts (multi-column, equations, tables) sometimes produce noisy text. A vision-LLM-based parser (e.g., GPT-4V) would improve extraction but increases cost.
 4. **No long-term memory.** Each session starts fresh; conversational context within a single session is preserved, but cross-session learning is not yet implemented.
+5. The ML confidence classifier currently uses a relatively small custom dataset. Larger multi-domain datasets would improve generalization.
 
 ### 7.5 Future Improvements
 
@@ -283,7 +382,10 @@ The following figures (in `assets/charts/`) summarize the evaluation:
 - Implement query rewriting for ambiguous user inputs.
 - Add cross-encoder re-ranking on retrieved chunks for higher precision.
 - Multi-modal support (figures, equations, tables).
-
+- Train confidence models on larger multi-domain datasets
+- Replace RandomForest with transformer-based confidence estimation
+- Add active learning for continuous confidence-model improvement
+- Add MLflow dashboard deployment for experiment monitoring
 ---
 
 ## 8. Conclusions
@@ -301,7 +403,7 @@ CiteMind AI demonstrates that a production-grade, citation-aware research assist
 
 The most important contribution is **honesty by design** — by surfacing confidence levels, citations, and original chunks, the system shifts the trust burden from blind faith in the LLM to transparent, verifiable evidence the user can inspect.
 
-In a world of confidently hallucinating AI, CiteMind AI shows what trustworthy AI for research can look like.
+In a world of confidently hallucinating AI, CiteMind AI shows what trustworthy AI for research can look like.An important advancement achieved during development was the transition from a simple RAG pipeline to a hybrid ML + RAG architecture. By integrating machine-learning-based confidence estimation, experiment tracking with MLflow, and deployment-ready Docker support, the system evolved into a more reliable and research-oriented AI assistant.
 
 ---
 
@@ -313,7 +415,8 @@ In a world of confidently hallucinating AI, CiteMind AI shows what trustworthy A
 4. Es, S. et al. (2023). *RAGAS: Automated Evaluation of Retrieval Augmented Generation.* EACL 2024. https://arxiv.org/abs/2309.15217
 5. Gao, Y. et al. (2023). *Retrieval-Augmented Generation for Large Language Models: A Survey.* arXiv. https://arxiv.org/abs/2312.10997
 6. Vaswani, A. et al. (2017). *Attention Is All You Need.* NeurIPS 2017. https://arxiv.org/abs/1706.03762
-
+7. Pedregosa, F. et al. (2011). Scikit-learn: Machine Learning in Python. JMLR.
+8. Zaharia, M. et al. (2018). MLflow: An Open Source Platform for the Machine Learning Lifecycle.
 ---
 
 *Crafted by Md Sha Niamatullah (Niam) · CiteMind AI · 2026*
