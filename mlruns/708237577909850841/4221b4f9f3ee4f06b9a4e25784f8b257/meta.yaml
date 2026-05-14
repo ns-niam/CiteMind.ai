@@ -1,0 +1,15 @@
+artifact_uri: file:///workspaces/CiteMind.ai/mlruns/708237577909850841/4221b4f9f3ee4f06b9a4e25784f8b257/artifacts
+end_time: 1778780904904
+entry_point_name: ''
+experiment_id: '708237577909850841'
+lifecycle_stage: active
+run_id: 4221b4f9f3ee4f06b9a4e25784f8b257
+run_name: sincere-owl-755
+run_uuid: 4221b4f9f3ee4f06b9a4e25784f8b257
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778780899957
+status: 3
+tags: []
+user_id: codespace

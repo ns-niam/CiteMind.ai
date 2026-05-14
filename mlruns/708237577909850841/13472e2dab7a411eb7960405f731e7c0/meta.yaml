@@ -1,0 +1,15 @@
+artifact_uri: file:///workspaces/CiteMind.ai/mlruns/708237577909850841/13472e2dab7a411eb7960405f731e7c0/artifacts
+end_time: 1778780860079
+entry_point_name: ''
+experiment_id: '708237577909850841'
+lifecycle_stage: active
+run_id: 13472e2dab7a411eb7960405f731e7c0
+run_name: casual-roo-329
+run_uuid: 13472e2dab7a411eb7960405f731e7c0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778780852211
+status: 3
+tags: []
+user_id: codespace

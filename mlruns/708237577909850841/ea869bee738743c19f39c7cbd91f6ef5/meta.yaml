@@ -1,0 +1,15 @@
+artifact_uri: file:///workspaces/CiteMind.ai/mlruns/708237577909850841/ea869bee738743c19f39c7cbd91f6ef5/artifacts
+end_time: 1778780607140
+entry_point_name: ''
+experiment_id: '708237577909850841'
+lifecycle_stage: active
+run_id: ea869bee738743c19f39c7cbd91f6ef5
+run_name: gregarious-gnat-889
+run_uuid: ea869bee738743c19f39c7cbd91f6ef5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778780598471
+status: 3
+tags: []
+user_id: codespace

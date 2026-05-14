@@ -1,0 +1,15 @@
+artifact_uri: file:///workspaces/CiteMind.ai/mlruns/708237577909850841/59f2a778a5bb43edacc93eab9cbecc1c/artifacts
+end_time: 1778780916732
+entry_point_name: ''
+experiment_id: '708237577909850841'
+lifecycle_stage: active
+run_id: 59f2a778a5bb43edacc93eab9cbecc1c
+run_name: luxuriant-lamb-648
+run_uuid: 59f2a778a5bb43edacc93eab9cbecc1c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778780912158
+status: 3
+tags: []
+user_id: codespace

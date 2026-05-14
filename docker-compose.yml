@@ -1,0 +1,22 @@
+services:
+  citemind:
+    build: .
+    container_name: citemind_ai
+    ports:
+      - "8501:8501"
+    environment:
+      GROQ_API_KEY: ${GROQ_API_KEY}
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY}
+      DEFAULT_LLM: ${DEFAULT_LLM:-groq}
+      EMBEDDING_MODEL: ${EMBEDDING_MODEL:-sentence-transformers/all-MiniLM-L6-v2}
+      CHROMA_PERSIST_DIR: ${CHROMA_PERSIST_DIR:-/app/chroma_db}
+      COLLECTION_NAME: ${COLLECTION_NAME:-citemind_docs}
+      CHUNK_SIZE: ${CHUNK_SIZE:-1000}
+      CHUNK_OVERLAP: ${CHUNK_OVERLAP:-200}
+      TOP_K: ${TOP_K:-5}
+    volumes:
+      - ./data:/app/data
+      - ./chroma_db:/app/chroma_db
+      - ./models:/app/models
+      - ./mlruns:/app/mlruns
+    restart: unless-stopped

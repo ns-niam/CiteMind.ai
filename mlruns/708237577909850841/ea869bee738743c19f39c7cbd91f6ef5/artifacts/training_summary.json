@@ -1,0 +1,44 @@
+{
+  "dataset_rows": 20,
+  "dataset_columns": 17,
+  "feature_columns": [
+    "top_score",
+    "avg_score",
+    "min_score",
+    "max_score",
+    "score_std",
+    "citation_count",
+    "context_chars",
+    "question_len",
+    "answer_len",
+    "response_time"
+  ],
+  "metrics": {
+    "train_accuracy": 1.0,
+    "test_accuracy": 0.4,
+    "test_f1_macro": 0.3889
+  },
+  "classification_report": "              precision    recall  f1-score   support\n\n         low       0.33      1.00      0.50         1\n      medium       1.00      0.50      0.67         2\n        high       0.00      0.00      0.00         2\n\n    accuracy                           0.40         5\n   macro avg       0.44      0.50      0.39         5\nweighted avg       0.47      0.40      0.37         5\n",
+  "confusion_matrix": [
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      1
+    ],
+    [
+      2,
+      0,
+      0
+    ]
+  ],
+  "classes": [
+    "high",
+    "low",
+    "medium"
+  ]
+}
