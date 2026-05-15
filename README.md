@@ -32,7 +32,11 @@ semantic search, and citation tracking to create a research assistant that actua
 </p>
 
 <p>
-🔗 <a href="#-live-demo">Live Demo</a> •
+🔗 <a href="https://github.com/user-attachments/assets/c3d275a6-2e81-4f64-8f2a-e66366604516">
+
+
+
+</a> •
 📖 <a href="#-documentation">Documentation</a> •
 ⚡ <a href="#-quick-start">Quick Start</a> •
 📊 <a href="#-evaluation-results">Evaluation</a>
