@@ -1,0 +1,15 @@
+artifact_uri: file:///workspaces/CiteMind.ai/mlruns/708237577909850841/f26a046f9eb64712a7ea446cdb9f788b/artifacts
+end_time: 1778800202925
+entry_point_name: ''
+experiment_id: '708237577909850841'
+lifecycle_stage: active
+run_id: f26a046f9eb64712a7ea446cdb9f788b
+run_name: auspicious-squid-523
+run_uuid: f26a046f9eb64712a7ea446cdb9f788b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778800195042
+status: 3
+tags: []
+user_id: codespace
