@@ -503,7 +503,7 @@ CiteMind AI was evaluated on academic research queries using RAGAS-inspired metr
 | Faithfulness | ⚠️ Needs further optimization |
 | Response Speed | ⚡ Fast inference with Groq |
 | Citation Accuracy | ✅ Citation-aware responses |
-
+````
 ---
 
 # 🧪 Methodology
