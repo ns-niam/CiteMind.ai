@@ -34,15 +34,9 @@ CiteMind AI combines Retrieval-Augmented Generation (RAG), semantic search, dual
 
 ---
 
-## 🎬 Live Demo
+### ▶ Watch Demo
 
-### 📺 Watch Demo Video
-
-<a href="YOUR_VIDEO_LINK_HERE">
-  <img src="assets/screenshots/demo.gif" width="100%" />
-</a>
-
-### ✨ Click the preview above to watch the full demo
+[![Watch Demo](SCREENSHOTS/STREAMLIT-home-page.png)](https://github.com/user-attachments/assets/7c221cc4-25ee-45ce-aa6f-fd61f4dba447)
 
 ---
 
