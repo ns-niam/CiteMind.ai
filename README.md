@@ -100,47 +100,61 @@ CiteMind AI solves this using an advanced **Retrieval-Augmented Generation (RAG)
 
 # 🏗️ System Architecture
 
-<div align="center">
-
-<img src="assets/charts/architecture_diagram.png" width="100%" />
-
-</div>
+<p align="center">
+  <img src="./assets/charts/architecture_diagram.png" width="100%">
+</p>
 
 ```mermaid
 flowchart LR
 
     subgraph Ingestion["📥 Ingestion Pipeline"]
-        A[PDF / DOCX / TXT] --> B[Document Loader]
-        B --> C[Chunking Engine]
-        C --> D[Embedding Model]
+        A["PDF / DOCX / TXT Documents"] --> B["Document Loader"]
+        B --> C["Chunking Engine"]
+        C --> D["Embedding Model"]
     end
 
     subgraph Storage["💾 Vector Storage"]
-        E[(ChromaDB)]
+        E[("ChromaDB")]
     end
 
     subgraph Retrieval["🔍 Retrieval Pipeline"]
-        F[User Query] --> G[Query Embedding]
-        G --> H[Retriever + MMR]
+        F["User Query"] --> G["Query Embedding"]
+        G --> H["Retriever + MMR Re-ranking"]
     end
 
     subgraph Generation["🤖 Generation Layer"]
-        I[Citation Tracker]
-        J[Groq Llama 3.3]
-        K[Gemini 2.5 Flash]
-        L[Final Response + Sources]
+        I["Citation Tracker"]
+        J["Groq Llama 3.3"]
+        K["Gemini 2.5 Flash"]
+    end
+
+    subgraph ML["🧠 ML Confidence Layer"]
+        M["Feature Extraction"]
+        N["RandomForest Classifier"]
+        O["Confidence Prediction"]
+    end
+
+    subgraph Output["✅ Final Output"]
+        P["Answer + Citations + Confidence"]
     end
 
     D --> E
     E --> H
+
     H --> I
+
     I --> J
     I --> K
-    J --> L
-    K --> L
+
+    J --> M
+    K --> M
+
+    M --> N
+    N --> O
+    O --> P
+
 ```
 
----
 
 # ✨ Features
 
@@ -166,10 +180,10 @@ flowchart LR
 
 ## 🤖 Dual LLM Architecture
 
-| Model                | Purpose                     |
-| -------------------- | --------------------------- |
-| ⚡ Groq Llama 3.3 70B | Ultra-fast responses        |
-| 🧠 Gemini 2.5 Flash  | Deeper reasoning & analysis |
+| Model | Purpose |
+|---|---|
+| ⚡ Groq Llama 3.3 70B | Ultra-fast responses |
+| 🧠 Gemini 2.5 Flash | Deeper reasoning & analysis |
 
 ### Benefits
 
@@ -183,16 +197,13 @@ flowchart LR
 
 CiteMind AI uses a **3-tier confidence system**:
 
-| Confidence | Behavior               |
-| ---------- | ---------------------- |
-| 🟢 High    | Confident cited answer |
-| 🟡 Medium  | Answer with warning    |
-| 🔴 Low     | Refuses to hallucinate |
+| Confidence | Behavior |
+|---|---|
+| 🟢 High | Confident cited answer |
+| 🟡 Medium | Answer with warning |
+| 🔴 Low | Refuses to hallucinate |
 
 ### No fake citations. No fabricated facts.
-
----
-
 
 ---
 
@@ -254,17 +265,20 @@ CiteMind AI uses a **3-tier confidence system**:
 
 # 🛠️ Tech Stack
 
-| Layer              | Technology              |
-| ------------------ | ----------------------- |
-| 🐍 Language        | Python 3.12             |
-| 🔗 Framework       | LangChain               |
-| 🧮 Embeddings      | all-MiniLM-L6-v2        |
-| 💾 Vector Database | ChromaDB                |
-| ⚡ Fast LLM         | Groq                    |
-| 🧠 Reasoning LLM   | Gemini 2.5 Flash        |
-| 🎨 Frontend        | Streamlit               |
-| 📊 Visualization   | Matplotlib              |
-| 📄 Parsing         | pdfplumber, python-docx |
+| Layer                  | Technology              |
+| ---------------------- | ----------------------- |
+| 🐍 Language            | Python 3.12             |
+| 🔗 Framework           | LangChain               |
+| 🧮 Embeddings          | all-MiniLM-L6-v2        |
+| 💾 Vector Database     | ChromaDB                |
+| ⚡ Fast LLM             | Groq Llama 3.3 70B      |
+| 🧠 Reasoning LLM       | Gemini 2.5 Flash        |
+| 🧠 ML Model            | RandomForestClassifier  |
+| 📊 Experiment Tracking | MLflow                  |
+| 🎨 Frontend            | Streamlit               |
+| 📊 Visualization       | Matplotlib, Plotly      |
+| 📄 Document Parsing    | pdfplumber, python-docx |
+| 🐳 Deployment          | Docker                  |
 
 ---
 
@@ -272,11 +286,11 @@ CiteMind AI uses a **3-tier confidence system**:
 
 ## 📦 Installation
 
-```bash
+```bash id="zjz7k0"
 # Clone repository
 git clone https://github.com/ns-niam/CiteMind.ai.git
 
-# Enter project
+# Enter project directory
 cd CiteMind.ai
 
 # Install dependencies
@@ -289,32 +303,49 @@ pip install -r requirements.txt
 
 Create a `.env` file:
 
-```env
+```env id="3c06tk"
 GROQ_API_KEY=your_groq_api_key
 GOOGLE_API_KEY=your_google_api_key
+DEFAULT_LLM=groq
 ```
 
 ---
 
 # 🚀 Run the Project
 
-## 🌐 Streamlit Web App
+## 🌐 Streamlit Web Application
 
-```bash
+### ▶ Local Run
+
+```bash id="eq7s7z"
 streamlit run app.py
 ```
 
-Open:
+Open in browser:
 
-```text
+```text id="21y0d3"
 http://localhost:8501
 ```
 
 ---
 
-## 💻 CLI Mode
+### ☁️ GitHub Codespaces Run
 
-```bash
+```bash id="5dg5x6"
+streamlit run app.py --server.port 8501 --server.address 0.0.0.0
+```
+
+Then open the forwarded port:
+
+```text id="k6gnxv"
+PORTS → 8501 → Open in Browser
+```
+
+---
+
+## 💻 CLI Research Chat
+
+```bash id="e6wwd9"
 python chat.py
 ```
 
@@ -322,11 +353,42 @@ python chat.py
 
 ## 📓 Jupyter Notebook Demo
 
-```bash
+```bash id="7chpjw"
 jupyter notebook notebooks/CiteMind_Demo.ipynb
 ```
 
 ---
+
+## 📊 Launch MLflow Dashboard
+
+### ▶ Local Run
+
+```bash id="qwe6h8"
+mlflow ui
+```
+
+Open:
+
+```text id="u6eb4u"
+http://localhost:5000
+```
+
+---
+
+### ☁️ GitHub Codespaces Run
+
+```bash id="7z9jbg"
+mlflow ui --host 0.0.0.0 --port 5000
+```
+
+Then open:
+
+```text id="lbo1t2"
+PORTS → 5000 → Open in Browser
+```
+
+---
+
 
 # 📁 Project Structure
 
