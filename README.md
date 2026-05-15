@@ -193,30 +193,63 @@ CiteMind AI uses a **3-tier confidence system**:
 
 ---
 
-# 🖼️ Screenshots
-
-## 💬 Chat Interface
-
-<img src="assets/screenshots/chat_interface.png" width="100%" />
 
 ---
 
-## 📤 Upload & Indexing
-
-<img src="assets/screenshots/upload_interface.png" width="100%" />
+# ✅ 9️⃣ SCREENSHOTS SECTION  ⭐
 
 ---
 
-## 📚 Citation Verification Panel
+## 📄 Data Pipeline
 
-<img src="assets/screenshots/source_panel.png" width="100%" />
+<img src="SCREENSHOTS/DATA-PIPELINE.png" width="100%" />
 
 ---
 
-## 🔄 Dual LLM Comparison
+## 🔍 Retrieval Pipeline
 
-<img src="assets/screenshots/llm_comparison.png" width="100%" />
+<img src="SCREENSHOTS/RETRIEVAL-PIPELINE.png" width="100%" />
 
+---
+
+## 🧠 Full RAG Pipeline
+
+<img src="SCREENSHOTS/FULL-RAG-PIPELINE.png" width="100%" />
+
+---
+
+## 📊 Evaluation Metrics
+
+<img src="SCREENSHOTS/EVALUATION.png" width="100%" />
+
+---
+
+## 🧪 Dataset Generation
+
+<img src="SCREENSHOTS/DATASET-GENERATION.png" width="100%" />
+
+---
+
+## 🤖 ML Confidence Training
+
+<img src="SCREENSHOTS/ML-MODEL-TRAINING.png" width="100%" />
+
+---
+
+## 📈 MLflow Dashboard
+
+<img src="SCREENSHOTS/MLFLOW-UI.png" width="100%" />
+
+---
+
+## 🌐 Streamlit Web Application
+
+<img src="SCREENSHOTS/STREAMLIT-home-page.png" width="100%" />
+
+---
+
+## 💬 Citation-Aware Results
+<img src="SCREENSHOTS/STREAMLIT-result.png" width="100%" />
 ---
 
 # 🛠️ Tech Stack
