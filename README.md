@@ -1,10 +1,10 @@
 <div align="center">
 
-<h1>🧠 CiteMind AI</h1>
+# 🧠 CiteMind AI
 
-<h3><i>Trustworthy AI Research Assistant with Verifiable Citations</i></h3>
+### *Hybrid ML + RAG Research Assistant with Verifiable Citations*
 
-<p><b>Stop trusting hallucinating AI. Start verifying every answer.</b></p>
+**Stop trusting hallucinating AI. Start verifying every answer.**
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white" />
@@ -13,53 +13,47 @@
   <img src="https://img.shields.io/badge/ChromaDB-0.5-FF6B6B?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Groq-Llama_3.3-F55036?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Gemini-2.5_Flash-4285F4?style=for-the-badge&logo=google&logoColor=white" />
+  <img src="https://img.shields.io/badge/MLflow-Experiment_Tracking-0194E2?style=for-the-badge&logo=mlflow&logoColor=white" />
+  <img src="https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/License-All_Rights_Reserved-red?style=flat-square" />
   <img src="https://img.shields.io/github/stars/ns-niam/CiteMind.ai?style=flat-square&color=facc15" />
-  <img src="https://img.shields.io/badge/Status-Production_Ready-22c55e?style=flat-square" />
+  <img src="https://img.shields.io/badge/Status-Deployment_Ready-22c55e?style=flat-square" />
   <img src="https://img.shields.io/badge/Built_By-Niam-ec4899?style=flat-square" />
 </p>
 
 ---
 
-<h3>🚀 AI-Powered Research. Grounded in Real Sources.</h3>
+### 🚀 AI-Powered Research. Grounded in Real Sources.
 
-<p>
-CiteMind AI combines advanced Retrieval-Augmented Generation (RAG), dual-LLM reasoning,
-semantic search, and citation tracking to create a research assistant that actually verifies its answers.
-</p>
+CiteMind AI combines Retrieval-Augmented Generation (RAG), semantic search, dual-LLM reasoning, citation-aware prompting, and ML-based confidence prediction to create a trustworthy AI research assistant.
 
-<p>
-🔗 <a href="https://github.com/user-attachments/assets/c3d275a6-2e81-4f64-8f2a-e66366604516">
+🔗 Upload research papers → Ask questions → Retrieve grounded answers → Verify citations → Predict confidence.
 
+---
 
+## 🎬 Live Demo
 
-</a> •
-📖 <a href="#-documentation">Documentation</a> •
-⚡ <a href="#-quick-start">Quick Start</a> •
-📊 <a href="#-evaluation-results">Evaluation</a>
-</p>
+### 📺 Watch Demo Video
+
+<a href="YOUR_VIDEO_LINK_HERE">
+  <img src="assets/screenshots/demo.gif" width="100%" />
+</a>
+
+### ✨ Click the preview above to watch the full demo
+
+---
+
+📖 [Documentation](#-system-architecture) •
+⚡ [Quick Start](#-quick-start) •
+📊 [Evaluation](#-evaluation-results) •
+🧠 [ML Confidence System](#-ml-based-confidence-prediction)
 
 </div>
 
 ---
-
-<div align="center">
-
-<h1>🎬 Live Demo</h1>
-
-<p>
-📺 <b>Demo Video:</b> Add your Loom / YouTube link here
-</p>
-
-<img src="assets/screenshots/demo.gif" width="100%" />
-
-<h3>✨ Upload papers → Ask questions → Get cited answers instantly</h3>
-
-</div>
-
 ---
 
 # 🌟 Why CiteMind AI?
