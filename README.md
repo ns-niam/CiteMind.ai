@@ -395,83 +395,91 @@ PORTS → 5000 → Open in Browser
 ```bash
 CiteMind.ai/
 │
-├── 📂 src/                          # Core source code
+├── 📂 src/                              # Core source code
+│   │
 │   ├── 📂 data/
-│   │   ├── loader.py                # PDF/DOCX/TXT loaders
-│   │   ├── chunker.py               # Recursive text splitting
-│   │   └── ingest.py                # End-to-end ingestion
+│   │   ├── loader.py                    # PDF/DOCX/TXT loaders
+│   │   ├── chunker.py                   # Recursive text splitting
+│   │   └── ingest.py                    # End-to-end ingestion
 │   │
 │   ├── 📂 embeddings/
-│   │   └── embedder.py              # Sentence-Transformers wrapper
+│   │   └── embedder.py                  # Sentence-Transformers wrapper
 │   │
 │   ├── 📂 retrieval/
-│   │   ├── vectorstore.py           # ChromaDB integration
-│   │   └── retriever.py             # Top-K + MMR retrieval
+│   │   ├── vectorstore.py               # ChromaDB integration
+│   │   └── retriever.py                 # Top-K + MMR retrieval
 │   │
 │   ├── 📂 generation/
-│   │   ├── llm.py                   # Groq + Gemini wrapper
-│   │   ├── prompts.py               # Citation-aware templates
-│   │   ├── citations.py             # Source tracker
-│   │   └── rag_engine.py            # End-to-end RAG pipeline
+│   │   ├── llm.py                       # Groq + Gemini wrapper
+│   │   ├── prompts.py                   # Citation-aware prompts
+│   │   ├── citations.py                 # Citation tracker
+│   │   └── rag_engine.py                # Hybrid ML + RAG engine
 │   │
 │   ├── 📂 evaluation/
-│   │   ├── evaluator.py             # RAGAS-style metrics
-│   │   └── visualize.py             # Chart generator
+│   │   ├── evaluator.py                 # RAG evaluation pipeline
+│   │   └── visualize.py                 # Metrics visualization
+│   │
+│   ├── 📂 ml/
+│   │   ├── build_dataset.py             # Confidence dataset builder
+│   │   ├── train_confidence.py          # RandomForest training
+│   │   ├── confidence_model.py          # Saved model loader
+│   │   ├── confidence_runtime.py        # Runtime inference system
+│   │   └── feature_builder.py           # Feature engineering
 │   │
 │   └── 📂 utils/
-│       ├── config.py                # Environment + settings
-│       └── display.py               # CLI pretty printer
+│       ├── config.py                    # Environment configuration
+│       └── display.py                   # CLI pretty printer
 │
 ├── 📂 notebooks/
-│   └── CiteMind_Demo.ipynb          # ⭐ Full reproducible demo
-│
-├── 📂 docs/                         # Documentation & deliverables
-│   ├── 01_problem_statement.md
-│   ├── 02_literature_review.md
-│   ├── 03_system_architecture.md
-│   ├── 04_system_logic.md
-│   ├── 05_ml_design_decisions.md
-│   ├── 06_defense_notes.md
-│   ├── FINAL_REPORT.md              # Markdown source
-│   ├── CiteMind_AI_Final_Report.pdf # 📄 8-10 page report
-│   └── CiteMind_AI_Presentation.pptx # 🎤 Defense slides
+│   └── CiteMind_Demo.ipynb              # Full reproducible notebook demo
 │
 ├── 📂 assets/
-│   ├── 📂 charts/                   # Evaluation visualizations
+│   ├── 📂 charts/                       # Evaluation visualizations
 │   │   ├── 01_metrics_comparison.png
 │   │   ├── 02_response_times.png
 │   │   ├── 03_per_query_faithfulness.png
 │   │   ├── 04_confidence_distribution.png
-│   │   ├── 05_radar_chart.png
-│   │   └── architecture_diagram.png
-│   └── 📂 screenshots/              # UI screenshots
+│   │   └── 05_radar_chart.png
+│   │
+│   └── 📂 screenshots/                  # UI & system screenshots
+│
+├── 📂 SCREENSHOTS/                      # README presentation screenshots
+│
+├── 📂 demo/
+│   └── citemindai.mp4                   # Project demo video
 │
 ├── 📂 tests/
-│   ├── eval_queries.py              # 10 hand-crafted test queries
-│   ├── run_evaluation.py            # Full eval runner
+│   ├── eval_queries.py                  # Evaluation question set
+│   ├── run_evaluation.py                # Full evaluation runner
 │   ├── test_llms.py
 │   ├── test_data_pipeline.py
 │   ├── test_retrieval.py
 │   └── test_rag.py
 │
 ├── 📂 data/
-│   ├── 📂 raw/                      # Uploaded documents (gitignored)
+│   ├── 📂 raw/                          # Uploaded documents
+│   ├── 📂 ml/                           # ML datasets
 │   └── 📂 processed/
-│       └── eval_results.json        # Evaluation outputs
+│       └── eval_results.json            # Evaluation outputs
+│
+├── 📂 models/
+│   ├── confidence_model.joblib
+│   └── confidence_training_summary.json
+│
+├── 📂 mlruns/                           # MLflow experiment tracking
 │
 ├── 📂 scripts/
-│   ├── generate_arch_diagram.py
-│   └── generate_presentation.py
+│   └── generate_arch_diagram.py
 │
-├── 🌐 app.py                        # Streamlit web app
-├── 💻 chat.py                       # CLI chat interface
+├── 🌐 app.py                            # Streamlit web application
+├── 💻 chat.py                           # CLI research chat
 ├── 📋 requirements.txt
+├── 🐳 Dockerfile
+├── 🐳 docker-compose.yml
 ├── 🔒 .env.example
 ├── 🚫 .gitignore
-└── 📖 README.md                     # You are here
+└── 📖 README.md
 ```
-
----
 
 # 📊 Evaluation Results
 
@@ -485,15 +493,16 @@ CiteMind AI was evaluated on academic research queries using RAGAS-inspired metr
 
 ---
 
-## 📈 Performance Summary
+````md id="7p90qy"
+# 📈 Performance Summary
 
-| Metric            | Result      |
-| ----------------- | ----------- |
-| Answer Relevancy  | ✅ Excellent |
-| Context Precision | ✅ High      |
-| Faithfulness      | ✅ Strong    |
-| Response Speed    | ⚡ Fast      |
-| Citation Accuracy | ✅ Verified  |
+| Metric | Observation |
+|---|---|
+| Answer Relevancy | ✅ Strong semantic grounding |
+| Context Precision | ⚠️ Moderate retrieval precision |
+| Faithfulness | ⚠️ Needs further optimization |
+| Response Speed | ⚡ Fast inference with Groq |
+| Citation Accuracy | ✅ Citation-aware responses |
 
 ---
 
@@ -513,7 +522,9 @@ MMR Re-ranking
 Top-K Context Retrieval
     ↓
 Grounded LLM Generation
-```
+    ↓
+ML Confidence Prediction
+````
 
 ---
 
@@ -538,6 +549,9 @@ Optimized for:
 * [x] Dual LLM Integration
 * [x] Citation Tracking
 * [x] Evaluation Framework
+* [x] ML-Based Confidence Prediction
+* [x] MLflow Experiment Tracking
+* [x] Docker Support
 * [ ] Hybrid Search (BM25 + Dense)
 * [ ] Cross-Encoder Re-Ranking
 * [ ] Conversational Memory
@@ -549,15 +563,16 @@ Optimized for:
 
 # 🆚 Comparison with Existing Tools
 
-| Feature               | ChatGPT | Perplexity | NotebookLM | CiteMind AI |
-| --------------------- | ------- | ---------- | ---------- | ----------- |
-| Open Source           | ❌       | ❌          | ❌          | ✅           |
-| Self Hostable         | ❌       | ❌          | ❌          | ✅           |
-| Citation Tracking     | ❌       | ✅          | ✅          | ✅           |
-| Multi-LLM Support     | ❌       | ❌          | ❌          | ✅           |
-| User Document Support | ❌       | ❌          | ✅          | ✅           |
-| Built-in Evaluation   | ❌       | ❌          | ❌          | ✅           |
-| Hallucination Refusal | ❌       | ❌          | ❌          | ✅           |
+| Feature                  | ChatGPT | Perplexity | NotebookLM | CiteMind AI |
+| ------------------------ | ------- | ---------- | ---------- | ----------- |
+| Open Source              | ❌       | ❌          | ❌          | ✅           |
+| Self Hostable            | ❌       | ❌          | ❌          | ✅           |
+| Citation Tracking        | ❌       | ✅          | ✅          | ✅           |
+| Multi-LLM Support        | ❌       | ❌          | ❌          | ✅           |
+| User Document Support    | ❌       | ❌          | ✅          | ✅           |
+| ML Confidence Prediction | ❌       | ❌          | ❌          | ✅           |
+| Built-in Evaluation      | ❌       | ❌          | ❌          | ✅           |
+| Hallucination Refusal    | ❌       | ❌          | ❌          | ✅           |
 
 ---
 
@@ -574,6 +589,39 @@ Optimized for:
 | 🧠 ML Design Decisions  | Engineering choices         |
 
 ---
+
+---
+
+# ⚠️ Current Limitations
+
+Although CiteMind AI demonstrates a strong hybrid ML + RAG architecture, several limitations still remain.
+
+| Limitation | Description |
+|---|---|
+| 📉 Limited Evaluation Dataset | Current evaluation uses a relatively small handcrafted query set. |
+| ⚠️ Moderate Faithfulness | Some generated responses may still partially hallucinate under weak retrieval conditions. |
+| 📚 Retrieval Precision | Dense retrieval alone may miss highly specific keyword-based matches. |
+| 🧠 No Conversational Memory | The system currently handles single-turn queries only. |
+| 🌐 No Cloud Deployment Yet | Deployment is currently local / Codespaces based. |
+| 🎥 No Multi-Modal Support | Images, tables, and figures inside PDFs are not deeply analyzed yet. |
+| 💾 Embedding Constraints | Lightweight embedding models may reduce semantic depth for highly technical domains. |
+
+---
+
+## 🚀 Planned Improvements
+
+Future versions aim to include:
+
+* Hybrid Retrieval (BM25 + Dense Search)
+* Cross-Encoder Re-ranking
+* Better hallucination mitigation
+* Multi-modal document understanding
+* Cloud deployment support
+* Larger benchmark evaluation datasets
+* Conversational memory and session persistence
+
+---
+
 
 # 🤝 Contributing
 
@@ -592,17 +640,17 @@ git push origin feature/amazing-feature
 
 ---
 
-
-
 # 📜 License
 
 Copyright © 2026 Niam. All rights reserved.
 
 This repository is shared publicly for educational and research purposes only.
 
-Commercial use, redistribution, sublicensing or deployment of modified versions is prohibited without explicit written permission from the author.
+Commercial use, redistribution, sublicensing, or deployment of modified versions is prohibited without explicit written permission from the author.
 
-If you are interested in collaboration, research or licensing opportunities, please contact the author.
+If you are interested in collaboration, research, or licensing opportunities, please contact the author.
+
+---
 
 # 🙏 Acknowledgments
 
@@ -624,11 +672,11 @@ Special thanks to:
 
 ### *Building trustworthy AI systems for the future of research.*
 
-📧 Open to AI/ML internships, collaborations and research opportunities.
+📧 Open to AI/ML internships, collaborations, and research opportunities.
 
 ### ⭐ If you found this project useful, give it a star!
 
-> *“In a world of confidently hallucinating AI, trustworthy AI becomes a necessity — not a luxury.”*
+> *“Trustworthy AI is not just about generating answers — it is about proving them.”*
 
 </div>
 
@@ -636,7 +684,7 @@ Special thanks to:
 
 <div align="center">
 
-## 🧠 CiteMind.AI
+## 🧠 CiteMind AI
 
 ### Made with ❤️ by Niam
 
