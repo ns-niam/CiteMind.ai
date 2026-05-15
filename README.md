@@ -492,18 +492,25 @@ CiteMind AI was evaluated on academic research queries using RAGAS-inspired metr
 </div>
 
 ---
-
-````md id="7p90qy"
 # 📈 Performance Summary
 
-| Metric | Observation |
-|---|---|
-| Answer Relevancy | ✅ Strong semantic grounding |
-| Context Precision | ⚠️ Moderate retrieval precision |
-| Faithfulness | ⚠️ Needs further optimization |
-| Response Speed | ⚡ Fast inference with Groq |
-| Citation Accuracy | ✅ Citation-aware responses |
-````
+| Metric | Observation | Current Result |
+| --- | --- | --- |
+| Answer Relevancy | Strong semantic grounding | 0.748 |
+| Context Precision | Moderate retrieval precision | 0.09 |
+| Faithfulness | Needs further optimization | 0.233 |
+| Response Speed | Fast inference with Groq | ~0.89s |
+| Citation Accuracy | Citation-aware responses | Verified |
+
+---
+
+## 📊 Evaluation Insights
+
+- Groq produced significantly faster responses than Gemini.
+- Gemini demonstrated comparatively deeper reasoning in complex queries.
+- Retrieval quality strongly influences downstream faithfulness.
+- ML-based confidence prediction helped identify weak retrieval cases.
+- Citation-aware prompting reduced unsupported answer generation.
 ---
 
 # 🧪 Methodology
