@@ -26,7 +26,7 @@
 
 ---
 
-### 🚀 AI-Powered Research. Grounded in Real Sources.
+###  AI-Powered Research. Grounded in Real Sources.
 
 CiteMind AI combines Retrieval-Augmented Generation (RAG), semantic search, dual-LLM reasoning, citation-aware prompting, and ML-based confidence prediction to create a trustworthy AI research assistant.
 
@@ -40,10 +40,10 @@ CiteMind AI combines Retrieval-Augmented Generation (RAG), semantic search, dual
 
 ---
 
-📖 [Documentation](#-system-architecture) •
-⚡ [Quick Start](#-quick-start) •
-📊 [Evaluation](#-evaluation-results) •
-🧠 [ML Confidence System](#-ml-based-confidence-prediction)
+ [Documentation](#-system-architecture) •
+ [Quick Start](#-quick-start) •
+ [Evaluation](#-evaluation-results) •
+ [ML Confidence System](#-ml-based-confidence-prediction)
 
 </div>
 
@@ -52,20 +52,20 @@ CiteMind AI combines Retrieval-Augmented Generation (RAG), semantic search, dual
 
 # 🌟 Why CiteMind AI?
 
-| 🛡️ Anti-Hallucination | ⚡ Dual LLM Architecture | 📚 Verifiable Citations |
+|  Anti-Hallucination |  Dual LLM Architecture |  Verifiable Citations |
 |---|---|---|
 | Refuses to answer when retrieval confidence is low. No fake citations. | Switch between Groq (speed) and Gemini (deep reasoning). | Every claim links back to document + page + chunk. |
 
 ---
 
-# 🎯 The Problem
+#  The Problem
 
 Every year, researchers face an overwhelming flood of academic information.
 
-- 📄 **Millions of new papers** published annually  
-- ⏳ Researchers spend countless hours on literature review  
-- 🤖 Traditional LLMs hallucinate facts and invent citations  
-- 🔍 Search engines return documents, not trustworthy answers  
+-  **Millions of new papers** published annually  
+-  Researchers spend countless hours on literature review  
+-  Traditional LLMs hallucinate facts and invent citations  
+-  Search engines return documents, not trustworthy answers  
 
 ## The Result
 
@@ -73,32 +73,32 @@ AI becomes fast — but unreliable for serious research.
 
 ---
 
-# 💡 The Solution
+#  The Solution
 
 CiteMind AI solves this using an advanced **Retrieval-Augmented Generation (RAG)** pipeline.
 
 ```text
-📄 Documents
+ Documents
       ↓
-🧠 Semantic Retrieval
+ Semantic Retrieval
       ↓
-📌 Citation Tracking
+ Citation Tracking
       ↓
-🤖 Grounded LLM Generation
+ Grounded LLM Generation
       ↓
 ✅ Verifiable Research Answers
 ```
 ### Core Innovations
 
-* 🔍 Semantic document search
-* 📚 Chunk-level citation grounding
-* ⚡ Dual-LLM reasoning system
-* 🚦 Confidence-aware refusal mechanism
-* 🛡️ Hallucination-resistant responses
+*  Semantic document search
+*  Chunk-level citation grounding
+*  Dual-LLM reasoning system
+*  Confidence-aware refusal mechanism
+*  Hallucination-resistant responses
 
 ---
 
-# 🏗️ System Architecture
+#  System Architecture
 
 # CiteMind AI — System Architecture
 
@@ -107,12 +107,12 @@ CiteMind AI solves this using an advanced **Retrieval-Augmented Generation (RAG)
 ```mermaid
 flowchart TB
 
-    subgraph User["👤 User Layer"]
+    subgraph User[" User Layer"]
         U1[Researcher / Student]
         U2[Streamlit Web UI]
     end
 
-    subgraph Ingestion["📥 Document Ingestion Pipeline"]
+    subgraph Ingestion[" Document Ingestion Pipeline"]
         D1[PDF / DOCX / TXT Upload]
         D2[Document Loader<br/>pdfplumber / python-docx]
         D3[Text Cleaner<br/>Remove headers, footers, noise]
@@ -120,23 +120,23 @@ flowchart TB
         D5[Metadata Tagger<br/>doc_id, page, chunk_id]
     end
 
-    subgraph Embedding["🧮 Embedding Layer"]
+    subgraph Embedding[" Embedding Layer"]
         E1[Sentence-Transformers<br/>all-MiniLM-L6-v2]
         E2[384-dim Vector Embeddings]
     end
 
-    subgraph Storage["💾 Vector Storage"]
+    subgraph Storage[" Vector Storage"]
         V1[(ChromaDB<br/>Persistent Vector Index)]
     end
 
-    subgraph Retrieval["🔍 Retrieval Engine"]
+    subgraph Retrieval[" Retrieval Engine"]
         R1[Query Embedding]
         R2[Cosine Similarity Search]
         R3[Top-K Retrieval k=5]
         R4[MMR Re-ranking<br/>Diversity Optimization]
     end
 
-    subgraph Generation["🤖 LLM Generation Layer"]
+    subgraph Generation[" LLM Generation Layer"]
         G1[Prompt Constructor<br/>Context + Query + Citation Rules]
         G2{LLM Router}
         G3[Groq<br/>Llama 3.3 70B]
@@ -150,7 +150,7 @@ flowchart TB
         M3[Confidence Prediction<br/>HIGH / MEDIUM / LOW]
     end
 
-    subgraph Eval["📊 Evaluation Pipeline"]
+    subgraph Eval[" Evaluation Pipeline"]
         EV1[RAGAS Metrics<br/>Faithfulness<br/>Answer Relevancy<br/>Context Precision]
         EV2[MLflow Experiment Tracking]
     end
@@ -281,7 +281,7 @@ graph LR
 
 ## 4. Production Deployment Roadmap
 
-### 🚀 Phase 1 — MVP (Current System)
+###  Phase 1 — MVP (Current System)
 
 | Component | Technology |
 | --- | --- |
@@ -293,7 +293,7 @@ graph LR
 
 ---
 
-### ⚡ Phase 2 — Scale-Up Architecture
+###  Phase 2 — Scale-Up Architecture
 
 | Component | Technology |
 | --- | --- |
@@ -305,7 +305,7 @@ graph LR
 
 ---
 
-### 🏢 Phase 3 — Enterprise Architecture
+###  Phase 3 — Enterprise Architecture
 
 | Component | Technology |
 | --- | --- |
@@ -328,9 +328,10 @@ graph LR
 - Experiment tracking using MLflow
 - Docker-ready deployment strategy
 - Scalable future enterprise roadmap
+
 # ✨ Features
 
-## 📄 Multi-Format Document Support
+##  Multi-Format Document Support
 
 * PDF ingestion with page metadata
 * DOCX document parsing
@@ -340,7 +341,7 @@ graph LR
 
 ---
 
-## 🔍 Advanced Retrieval System
+##  Advanced Retrieval System
 
 * Dense semantic search
 * MMR re-ranking
@@ -350,12 +351,12 @@ graph LR
 
 ---
 
-## 🤖 Dual LLM Architecture
+##  Dual LLM Architecture
 
 | Model | Purpose |
 |---|---|
-| ⚡ Groq Llama 3.3 70B | Ultra-fast responses |
-| 🧠 Gemini 2.5 Flash | Deeper reasoning & analysis |
+|  Groq Llama 3.3 70B | Ultra-fast responses |
+|  Gemini 2.5 Flash | Deeper reasoning & analysis |
 
 ### Benefits
 
@@ -365,7 +366,7 @@ graph LR
 
 ---
 
-## 🛡️ Hallucination Protection
+##  Hallucination Protection
 
 CiteMind AI uses a **3-tier confidence system**:
 
@@ -379,84 +380,84 @@ CiteMind AI uses a **3-tier confidence system**:
 
 ---
 
-# ✅ SCREENSHOTS SECTION  ⭐
+# SCREENSHOTS SECTION  
 
 ---
 
-## 📄 Data Pipeline
+##  Data Pipeline
 
 <img src="SCREENSHOTS/DATA-PIPELINE.png" width="100%" />
 
 ---
 
-## 🔍 Retrieval Pipeline
+##  Retrieval Pipeline
 
 <img src="SCREENSHOTS/RETRIEVAL-PIPELINE.png" width="100%" />
 
 ---
 
-## 🧠 Full RAG Pipeline
+##  Full RAG Pipeline
 
 <img src="SCREENSHOTS/FULL-RAG-PIPELINE.png" width="100%" />
 
 ---
 
-## 📊 Evaluation Metrics
+##  Evaluation Metrics
 
 <img src="SCREENSHOTS/EVALUATION.png" width="100%" />
 
 ---
 
-## 🧪 Dataset Generation
+##  Dataset Generation
 
 <img src="SCREENSHOTS/DATASET-GENERATION.png" width="100%" />
 
 ---
 
-## 🤖 ML Confidence Training
+##  ML Confidence Training
 
 <img src="SCREENSHOTS/ML-MODEL-TRAINING.png" width="100%" />
 
 ---
 
-## 📈 MLflow Dashboard
+##  MLflow Dashboard
 
 <img src="SCREENSHOTS/MLFLOW-UI.png" width="100%" />
 
 ---
 
-## 🌐 Streamlit Web Application
+##  Streamlit Web Application
 
 <img src="SCREENSHOTS/STREAMLIT-home-page.png" width="100%" />
 
 ---
 
-## 💬 Citation-Aware Results
+##  Citation-Aware Results
 <img src="SCREENSHOTS/STREAMLIT-result.png" width="100%" />
 ---
 
-# 🛠️ Tech Stack
+#  Tech Stack
 
 | Layer                  | Technology              |
 | ---------------------- | ----------------------- |
-| 🐍 Language            | Python 3.12             |
-| 🔗 Framework           | LangChain               |
-| 🧮 Embeddings          | all-MiniLM-L6-v2        |
-| 💾 Vector Database     | ChromaDB                |
-| ⚡ Fast LLM             | Groq Llama 3.3 70B      |
-| 🧠 Reasoning LLM       | Gemini 2.5 Flash        |
-| 🧠 ML Model            | RandomForestClassifier  |
-| 📊 Experiment Tracking | MLflow                  |
-| 🎨 Frontend            | Streamlit               |
-| 📊 Visualization       | Matplotlib, Plotly      |
-| 📄 Document Parsing    | pdfplumber, python-docx |
-| 🐳 Deployment          | Docker                  |
+|  Language              | Python 3.12             |
+|  Framework             | LangChain               |
+|  Embeddings            | all-MiniLM-L6-v2        |
+|  Vector Database       | ChromaDB                |
+|  Fast LLM              | Groq Llama 3.3 70B      |
+|  Reasoning LLM         | Gemini 2.5 Flash        |
+|  ML Model              | RandomForestClassifier  |
+|  Experiment Tracking   | MLflow                  |
+|  Frontend              | Streamlit               |
+|  Visualization         | Matplotlib, Plotly      |
+|  Document Parsing      | pdfplumber, python-docx |
+|  Deployment            | Docker                  |
 
 ---
 
-# ⚡ Quick Start
+# Quick Start
 
-## 📦 Installation
+## Installation
 
 ```bash id="zjz7k0"
 # Clone repository
@@ -471,7 +472,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🔑 Environment Variables
+##  Environment Variables
 
 Create a `.env` file:
 
@@ -483,9 +484,9 @@ DEFAULT_LLM=groq
 
 ---
 
-# 🚀 Run the Project
+#  Run the Project
 
-## 🌐 Streamlit Web Application
+##  Streamlit Web Application
 
 ### ▶ Local Run
 
@@ -501,7 +502,7 @@ http://localhost:8501
 
 ---
 
-### ☁️ GitHub Codespaces Run
+###  GitHub Codespaces Run
 
 ```bash id="5dg5x6"
 streamlit run app.py --server.port 8501 --server.address 0.0.0.0
@@ -523,7 +524,7 @@ python chat.py
 
 ---
 
-## 📓 Jupyter Notebook Demo
+##  Jupyter Notebook Demo
 
 ```bash id="7chpjw"
 jupyter notebook notebooks/CiteMind_Demo.ipynb
@@ -531,7 +532,7 @@ jupyter notebook notebooks/CiteMind_Demo.ipynb
 
 ---
 
-## 📊 Launch MLflow Dashboard
+##  Launch MLflow Dashboard
 
 ### ▶ Local Run
 
@@ -547,7 +548,7 @@ http://localhost:5000
 
 ---
 
-### ☁️ GitHub Codespaces Run
+###  GitHub Codespaces Run
 
 ```bash id="7z9jbg"
 mlflow ui --host 0.0.0.0 --port 5000
@@ -643,17 +644,17 @@ CiteMind.ai/
 ├── 📂 scripts/
 │   └── generate_arch_diagram.py
 │
-├── 🌐 app.py                            # Streamlit web application
-├── 💻 chat.py                           # CLI research chat
-├── 📋 requirements.txt
-├── 🐳 Dockerfile
-├── 🐳 docker-compose.yml
-├── 🔒 .env.example
-├── 🚫 .gitignore
-└── 📖 README.md
+├──  app.py                            # Streamlit web application
+├──  chat.py                           # CLI research chat
+├──  requirements.txt
+├──  Dockerfile
+├──  docker-compose.yml
+├──  .env.example
+├──  .gitignore
+└──  README.md
 ```
 
-# 📊 Evaluation Results
+#  Evaluation Results
 
 CiteMind AI was evaluated on academic research queries using RAGAS-inspired metrics.
 
@@ -664,7 +665,7 @@ CiteMind AI was evaluated on academic research queries using RAGAS-inspired metr
 </div>
 
 ---
-# 📈 Performance Summary
+#  Performance Summary
 
 | Metric | Observation | Current Result |
 | --- | --- | --- |
@@ -676,7 +677,7 @@ CiteMind AI was evaluated on academic research queries using RAGAS-inspired metr
 
 ---
 
-## 📊 Evaluation Insights
+##  Evaluation Insights
 
 - Groq produced significantly faster responses than Gemini.
 - Gemini demonstrated comparatively deeper reasoning in complex queries.
@@ -685,9 +686,9 @@ CiteMind AI was evaluated on academic research queries using RAGAS-inspired metr
 - Citation-aware prompting reduced unsupported answer generation.
 ---
 
-# 🧪 Methodology
+#  Methodology
 
-## 📌 Retrieval Pipeline
+##  Retrieval Pipeline
 
 ```text
 User Query
@@ -707,7 +708,7 @@ ML Confidence Prediction
 
 ---
 
-## 📚 Chunking Strategy
+##  Chunking Strategy
 
 ```python
 chunk_size = 1000
@@ -722,7 +723,7 @@ Optimized for:
 
 ---
 
-# 🗺️ Roadmap
+#  Roadmap
 
 * [x] Core RAG Pipeline
 * [x] Dual LLM Integration
@@ -740,7 +741,7 @@ Optimized for:
 
 ---
 
-# 🆚 Comparison with Existing Tools
+#  Comparison with Existing Tools
 
 | Feature                  | ChatGPT | Perplexity | NotebookLM | CiteMind AI |
 | ------------------------ | ------- | ---------- | ---------- | ----------- |
@@ -755,39 +756,39 @@ Optimized for:
 
 ---
 
-# 📚 Documentation
+#  Documentation
 
 | Document                | Description                 |
 | ----------------------- | --------------------------- |
-| 📄 Final Report         | Complete academic report    |
-| 🎤 Presentation         | Defense presentation slides |
-| 📓 Demo Notebook        | Reproducible notebook       |
-| 📋 Problem Statement    | Research motivation         |
-| 📚 Literature Review    | Related work                |
-| 🏗️ System Architecture | Technical design            |
-| 🧠 ML Design Decisions  | Engineering choices         |
+|  Final Report         | Complete academic report    |
+|  Presentation         | Defense presentation slides |
+|  Demo Notebook        | Reproducible notebook       |
+|  Problem Statement    | Research motivation         |
+|  Literature Review    | Related work                |
+|  System Architecture | Technical design            |
+|  ML Design Decisions  | Engineering choices         |
 
 ---
 
 ---
 
-# ⚠️ Current Limitations
+#  Current Limitations
 
 Although CiteMind AI demonstrates a strong hybrid ML + RAG architecture, several limitations still remain.
 
 | Limitation | Description |
 |---|---|
-| 📉 Limited Evaluation Dataset | Current evaluation uses a relatively small handcrafted query set. |
-| ⚠️ Moderate Faithfulness | Some generated responses may still partially hallucinate under weak retrieval conditions. |
-| 📚 Retrieval Precision | Dense retrieval alone may miss highly specific keyword-based matches. |
-| 🧠 No Conversational Memory | The system currently handles single-turn queries only. |
-| 🌐 No Cloud Deployment Yet | Deployment is currently local / Codespaces based. |
-| 🎥 No Multi-Modal Support | Images, tables, and figures inside PDFs are not deeply analyzed yet. |
-| 💾 Embedding Constraints | Lightweight embedding models may reduce semantic depth for highly technical domains. |
+|  Limited Evaluation Dataset | Current evaluation uses a relatively small handcrafted query set. |
+|  Moderate Faithfulness | Some generated responses may still partially hallucinate under weak retrieval conditions. |
+|  Retrieval Precision | Dense retrieval alone may miss highly specific keyword-based matches. |
+|  No Conversational Memory | The system currently handles single-turn queries only. |
+|  No Cloud Deployment Yet | Deployment is currently local / Codespaces based. |
+|  No Multi-Modal Support | Images, tables, and figures inside PDFs are not deeply analyzed yet. |
+|  Embedding Constraints | Lightweight embedding models may reduce semantic depth for highly technical domains. |
 
 ---
 
-## 🚀 Planned Improvements
+##  Planned Improvements
 
 Future versions aim to include:
 
@@ -802,7 +803,7 @@ Future versions aim to include:
 ---
 
 
-# 🤝 Contributing
+#  Contributing
 
 Contributions, ideas, and improvements are welcome.
 
@@ -831,15 +832,15 @@ If you are interested in collaboration, research, or licensing opportunities, pl
 
 ---
 
-# 🙏 Acknowledgments
+#  Acknowledgments
 
 Special thanks to:
 
 * Lewis et al. for the RAG paradigm
 * Sentence-BERT researchers
 * RAGAS framework authors
-* Groq & Google AI Studio
-* Open-source AI community
+* Groq & Google Api
+
 
 ---
 
@@ -853,7 +854,7 @@ Special thanks to:
 
 📧 Open to AI/ML internships, collaborations, and research opportunities.
 
-### ⭐ If you found this project useful, give it a star!
+###  If you found this project useful, give it a star!⭐
 
 > *“Trustworthy AI is not just about generating answers — it is about proving them.”*
 
